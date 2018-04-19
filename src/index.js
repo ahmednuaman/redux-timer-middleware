@@ -64,7 +64,10 @@ export default function timerMiddleware({dispatch}) {
                     }, timerInterval);
                 } else { // endless timer - we should stop by hand
                     timers[timerName].interval = setInterval(() => {
-                        dispatch({type: actionName});
+                        dispatch({
+                            type: actionName,
+                            payload: actionPayload
+                        });
                     }, timerInterval);
                 }
 
